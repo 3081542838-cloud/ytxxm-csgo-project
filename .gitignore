@@ -1,0 +1,12 @@
+.tools/
+target/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+experiments/private/
+docs/validation/private/
+*.dem
+*.zip
+*.mp4
+*.mkv
