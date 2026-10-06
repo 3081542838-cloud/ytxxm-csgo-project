@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "source": "local-validation/product-preview-20261003-01/sessions/preview-db0bb742459b44d1a20c969d82ca0f45/engine.log",
+  "source_sha256": "8b4b4dbd3d1f90ba5d2f32e4edee453f2d502d32e68e9920c7ba40b77e8914f3",
+  "source_log_finalized_at_extraction": false,
+  "fixture_sha256": "dc3db59963f73e64e6df764bb1f76201267fd3050c76182151b313fe40a7b3a8",
+  "session": "preview-db0bb742459b44d1a20c969d82ca0f45",
+  "nonce": "3bfbf3fdd2476fdaa30b268c9843e787",
+  "process_identity": {
+    "pid": 29992,
+    "created": 134354734018488526,
+    "executable": "D:\\steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\bin\\win64\\cs2.exe"
+  },
+  "records": [
+    {
+      "source_line": 821,
+      "meaning": "exact_start_pause"
+    },
+    {
+      "source_line": 822,
+      "meaning": "exact_start_engine"
+    },
+    {
+      "source_line": 823,
+      "meaning": "wrong_player_at_start"
+    },
+    {
+      "source_line": 824,
+      "meaning": "target_first_person_at_start"
+    },
+    {
+      "source_line": 1246,
+      "meaning": "manual_playback_unpaused"
+    },
+    {
+      "source_line": 1253,
+      "meaning": "manual_playback_middle"
+    },
+    {
+      "source_line": 1254,
+      "meaning": "exact_end_pause"
+    },
+    {
+      "source_line": 1255,
+      "meaning": "exact_end_engine"
+    },
+    {
+      "source_line": 1256,
+      "meaning": "target_first_person_at_end"
+    }
+  ],
+  "death_analysis": {
+    "source": "local-validation/product-preview-20261003-01/cache/analysis-v2-controller1-demoparser-0.42.0-c2a52a4b2d536053c64f369bc804fa19a3607f0d8484f9444606cce3485867b4.json",
+    "demo_fingerprint": {
+      "sha256": "c2a52a4b2d536053c64f369bc804fa19a3607f0d8484f9444606cce3485867b4",
+      "bytes": 89491937,
+      "mtime_ns": 1790648925427492300
+    },
+    "parser": "demoparser2-0.42.0",
+    "death": {
+      "player": "76561199198478034",
+      "tick": 10479
+    },
+    "timeline_pairs": [
+      [
+        10350,
+        13682
+      ],
+      [
+        10478,
+        13810
+      ],
+      [
+        10479,
+        13811
+      ]
+    ]
+  },
+  "scope": "Actual product start; manually verified-empty F8 binding then physical F8 playback to pre-death endpoint. Initial binding installation was UI-only. Later real marked Console queries show empty, installed and empty binding states; product binding automation is not established by this log. No NVIDIA recording. Source was live and unhashed at extraction, then finalized and independently audited after exit.",
+  "source_sha256_at_extraction": null,
+  "source_bytes": 822385,
+  "source_finalized_after_exit": true,
+  "source_finalized_at": "2026-10-03T12:16:13.3801780+08:00",
+  "post_exit_audit": "local-validation/product-preview-20261003-01/sessions/preview-db0bb742459b44d1a20c969d82ca0f45/post-exit-audit.json",
+  "binding_evidence": [
+    {
+      "meaning": "first_playback_then_empty_query",
+      "records": [
+        {
+          "source_line": 1649,
+          "text": "10/03 12:06:19 [Console] POV_BIND_PROBE_3bfbf3fdd2476fdaa30b268c9843e787"
+        },
+        {
+          "source_line": 1650,
+          "text": "10/03 12:06:19 [Console] bind [player 0]: \"F8\" = \"\""
+        },
+        {
+          "source_line": 1651,
+          "text": "10/03 12:06:19 [Console] POV_BIND_DONE_3bfbf3fdd2476fdaa30b268c9843e787"
+        }
+      ]
+    },
+    {
+      "meaning": "later_installed_query",
+      "records": [
+        {
+          "source_line": 1929,
+          "text": "10/03 12:08:36 [Console] POV_BIND_BEGIN_a7ab2982b316d993edb96e7629caeb5f"
+        },
+        {
+          "source_line": 1930,
+          "text": "10/03 12:08:36 [Console] bind [player 0]: \"F8\" = \"unbind F8; demo_resume; demo_pauseatservertick 13810\""
+        },
+        {
+          "source_line": 1931,
+          "text": "10/03 12:08:36 [Console] POV_BIND_END_a7ab2982b316d993edb96e7629caeb5f"
+        }
+      ]
+    },
+    {
+      "meaning": "later_empty_query",
+      "records": [
+        {
+          "source_line": 2012,
+          "text": "10/03 12:09:16 [Console] POV_BIND_BEGIN_c4a7c91c5e7fca6213ffbdfca2909157"
+        },
+        {
+          "source_line": 2013,
+          "text": "10/03 12:09:16 [Console] bind [player 0]: \"F8\" = \"\""
+        },
+        {
+          "source_line": 2014,
+          "text": "10/03 12:09:16 [Console] POV_BIND_END_c4a7c91c5e7fca6213ffbdfca2909157"
+        }
+      ]
+    }
+  ],
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

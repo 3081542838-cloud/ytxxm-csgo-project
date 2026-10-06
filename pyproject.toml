@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cs2-pov-helper"
+version = "0.1.0"
+description = "Local CS2 demo POV recording helper"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "PySide6-Essentials==6.11.2",
+  "demoparser2==0.42.0",
+  "comtypes==1.4.17",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "pytest-qt==4.5.0", "pyinstaller==6.22.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cs2pov = ["resources/*.ico", "resources/*.js"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+qt_api = "pyside6"
+addopts = "-ra --strict-markers"

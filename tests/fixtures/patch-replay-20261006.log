@@ -1,0 +1,10 @@
+10/06 14:56:29 CGameRules - paused on tick 3332
+10/06 14:56:30 [PanoramaScript] POV_READBACK {"nonce":"95a326d57d06f4c372901c686aa09e8a","sequence":8,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":0,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}
+10/06 14:56:31 [Demo] Demo Skipping: skipping to demo tick 12410 (game tick 15742) from full packet 11520 (14852).  Current playback is 0 (3332)
+10/06 14:56:32 [PanoramaScript] POV_READBACK {"nonce":"95a326d57d06f4c372901c686aa09e8a","sequence":11,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12410,"bIsPaused":false,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}
+10/06 14:56:32 CGameRules - paused on tick 15743
+10/06 14:56:32 [Demo] Demo Skipping: skipping to demo tick 12409 (game tick 15741) from full packet 11520 (14852).  Current playback is 12410 (15742)
+10/06 14:56:32 CGameRules - unpaused on tick 15743, pause duration was 0 ticks
+10/06 14:56:34 [PanoramaScript] POV_READBACK {"nonce":"95a326d57d06f4c372901c686aa09e8a","sequence":12,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12410,"bIsPaused":false,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}
+10/06 14:56:34 [Demo] Demo Skipping finished at tick 12409
+10/06 14:56:34 [PanoramaScript] POV_READBACK {"nonce":"95a326d57d06f4c372901c686aa09e8a","sequence":13,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12441,"bIsPaused":false,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}

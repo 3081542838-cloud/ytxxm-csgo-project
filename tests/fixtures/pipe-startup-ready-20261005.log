@@ -1,0 +1,6 @@
+10/05 01:39:00 [STARTUP] {5.642} server module init ok
+10/05 01:39:07 [STARTUP] {12.182} created game rules
+10/05 01:39:09 [Client] CL:  CGameClientConnectPrerequisite connection succeeded
+10/05 01:39:09 [Host] HO:  } IGameSystem::LoopActivateAllSystems done
+10/05 01:39:09 [Server] SV:  } IGameSystem::LoopActivateAllSystems done
+10/05 01:39:09 [Client] CL:  } IGameSystem::LoopActivateAllSystems done

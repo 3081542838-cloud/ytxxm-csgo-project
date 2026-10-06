@@ -1,0 +1,44 @@
+{
+  "source_session": "preview-a131ed64cbe340bfbdcf77c0ba304a08",
+  "source_sha256": "4f68735602ed5e121fafe452e35c1c8f96d399c453a5c3db4eb7a4a75f6a5b29",
+  "source_bytes": 188520,
+  "fixture_sha256": "0da4a2c055e145b4bd1acaced23eb33c55c5460e3f3e9aab3bac6c89bc770757",
+  "fixture_bytes": 1396,
+  "process_identity": {
+    "pid": 17792,
+    "created": 134355588686280371,
+    "executable": "D:\\steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\bin\\win64\\cs2.exe"
+  },
+  "nonce": "e978df7f4400003014bb6d2044f1cce2",
+  "records": [
+    {
+      "source_line": 936,
+      "meaning": "old_pause_before_seek"
+    },
+    {
+      "source_line": 937,
+      "meaning": "seek_intent"
+    },
+    {
+      "source_line": 939,
+      "meaning": "seek_unpaused"
+    },
+    {
+      "source_line": 940,
+      "meaning": "seek_finished"
+    },
+    {
+      "source_line": 941,
+      "meaning": "fresh_paused_preroll"
+    },
+    {
+      "source_line": 942,
+      "meaning": "fresh_paused_preroll"
+    }
+  ],
+  "expected_preroll_tick": 10286,
+  "target_start_tick": 10350,
+  "target_server_start_tick": 13682,
+  "evidence_limit": "The seek intent is not a server pause proof. After seek only a paused snapshot is available; no exact start or target-player proof was obtained in this failed source session.",
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

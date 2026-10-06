@@ -1,0 +1,6 @@
+10/04 11:44:45 CGameRules - paused on tick 11235
+10/04 11:44:45 [Demo] Demo Skipping: skipping forward to demo tick 10286 (game tick 13618) from current 7902 (11234)
+10/04 11:44:46 [PanoramaScript] POV_READBACK {"nonce":"e978df7f4400003014bb6d2044f1cce2","sequence":255,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":10286,"bIsPaused":false,"nObserverMode":2,"nSpectatingPlayerId":1666,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199153246852"}
+10/04 11:44:46 [Demo] Demo Skipping finished at tick 10286
+10/04 11:44:46 [PanoramaScript] POV_READBACK {"nonce":"e978df7f4400003014bb6d2044f1cce2","sequence":256,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":10286,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1666,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199153246852"}
+10/04 11:44:47 [PanoramaScript] POV_READBACK {"nonce":"e978df7f4400003014bb6d2044f1cce2","sequence":257,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":10286,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1666,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199153246852"}

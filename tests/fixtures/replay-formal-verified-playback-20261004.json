@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "source": "local-validation/product-preview-20261003-01/sessions/preview-f4273142271a45729fc54e9f0b4e239e/engine.log",
+  "source_sha256": "e493d7c2d893ee883e580c3c67e8356825a319c65662ec79d7bb1ab6492fef37",
+  "source_bytes": 314682,
+  "source_line_count": 1304,
+  "source_finalized": true,
+  "fixture_sha256": "387be72d5efd286ac1233791cbc07ac9fe750dbcf751b82289733b0e1a10049a",
+  "fixture_bytes": 5766,
+  "source_session": "preview-f4273142271a45729fc54e9f0b4e239e",
+  "nonce": "235e358479ad52a7c8f282a4da4c6e37",
+  "process_identity": {
+    "pid": 33388,
+    "created": 134355601750834772,
+    "executable": "D:\\steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\bin\\win64\\cs2.exe"
+  },
+  "process_source": {
+    "path": "local-validation/product-preview-20261003-01/sessions/preview-f4273142271a45729fc54e9f0b4e239e/process.json",
+    "sha256": "59f95946e76cd17152a732f5e584f709fd2001316b263194b919d63a6ed1ebaf"
+  },
+  "telemetry_source": {
+    "path": "local-validation/product-preview-20261003-01/sessions/preview-f4273142271a45729fc54e9f0b4e239e/trial-context.json",
+    "sha256": "a9e79c0b5fb5f87d4ac3c1291b09308e7969f5222367bd7057436a221bd3cdf0"
+  },
+  "demo": "C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem",
+  "selection": {
+    "start_tick": 10350,
+    "server_start_tick": 13682,
+    "end_tick": 10478,
+    "server_end_tick": 13810,
+    "player_id": "76561199198478034",
+    "duration": 2.0
+  },
+  "records": [
+    {
+      "source_line": 768,
+      "meaning": "exact_start_pause"
+    },
+    {
+      "source_line": 769,
+      "meaning": "exact_start_engine"
+    },
+    {
+      "source_line": 770,
+      "meaning": "wrong_player_at_start"
+    },
+    {
+      "source_line": 771,
+      "meaning": "target_first_person_at_start"
+    },
+    {
+      "source_line": 950,
+      "meaning": "fresh_start_before_binding"
+    },
+    {
+      "source_line": 951,
+      "meaning": "original_empty_begin"
+    },
+    {
+      "source_line": 952,
+      "meaning": "original_empty_value"
+    },
+    {
+      "source_line": 953,
+      "meaning": "original_empty_end"
+    },
+    {
+      "source_line": 955,
+      "meaning": "binding_install_command_echo"
+    },
+    {
+      "source_line": 956,
+      "meaning": "installed_binding_begin"
+    },
+    {
+      "source_line": 957,
+      "meaning": "installed_binding_value"
+    },
+    {
+      "source_line": 958,
+      "meaning": "installed_binding_end"
+    },
+    {
+      "source_line": 959,
+      "meaning": "fresh_start_after_install"
+    },
+    {
+      "source_line": 1048,
+      "meaning": "fresh_start_before_play"
+    },
+    {
+      "source_line": 1049,
+      "meaning": "playback_unpaused"
+    },
+    {
+      "source_line": 1050,
+      "meaning": "playback_movement_10361"
+    },
+    {
+      "source_line": 1051,
+      "meaning": "playback_movement_10393"
+    },
+    {
+      "source_line": 1052,
+      "meaning": "playback_movement_10425"
+    },
+    {
+      "source_line": 1055,
+      "meaning": "playback_movement_10458"
+    },
+    {
+      "source_line": 1057,
+      "meaning": "exact_end_pause"
+    },
+    {
+      "source_line": 1058,
+      "meaning": "exact_end_engine"
+    },
+    {
+      "source_line": 1059,
+      "meaning": "target_first_person_at_end"
+    },
+    {
+      "source_line": 1237,
+      "meaning": "fresh_end_before_final_query"
+    },
+    {
+      "source_line": 1238,
+      "meaning": "final_unbound_begin"
+    },
+    {
+      "source_line": 1239,
+      "meaning": "final_unbound_value"
+    },
+    {
+      "source_line": 1240,
+      "meaning": "final_unbound_end"
+    },
+    {
+      "source_line": 1241,
+      "meaning": "fresh_end_after_final_query"
+    }
+  ],
+  "binding_queries": [
+    {
+      "kind": "original_empty",
+      "nonce": "e4355eae042e443387c55d5411f5cb6a",
+      "value": "",
+      "source_lines": [
+        951,
+        952,
+        953
+      ]
+    },
+    {
+      "kind": "installed",
+      "nonce": "a5b1f1171cc240959181db4ac1a4fc91",
+      "value": "unbind F8; demo_resume; demo_pauseatservertick 13810",
+      "source_lines": [
+        956,
+        957,
+        958
+      ]
+    },
+    {
+      "kind": "final_unbound",
+      "nonce": "809701be9e224277b10f5122e24501ea",
+      "value": "",
+      "source_lines": [
+        1238,
+        1239,
+        1240
+      ]
+    }
+  ],
+  "binding_query_count_in_source": 3,
+  "evidence_scope": "Unaltered engine log bytes prove exact paused start/end, target first person, moving snapshots, original empty F8, exact temporary installation, and a distinct final runtime query returning empty F8. Tests replay these observations through real read-only readers with injected input counters; they do not prove screen visibility, polling cadence, restoration, NVIDIA recording, or input delivery from the excerpt. preview-state.json is not used as engine evidence.",
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

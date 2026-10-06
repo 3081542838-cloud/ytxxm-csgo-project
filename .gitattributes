@@ -1,0 +1,4 @@
+# Recorded evidence hashes include exact original newline bytes.
+tests/fixtures/*.log -text
+resources/bundled/*.vpk -text
+tests/fixtures/*.log whitespace=cr-at-eol

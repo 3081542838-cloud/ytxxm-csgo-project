@@ -1,0 +1,4 @@
+Required Notice: Copyright (c) 2026 DrEAmSs59
+Reference commit: f05c698c755dc7806855bb13a5c823dbf6a21de6
+Changes: Removed input audio, alerts, voice/input/radar tracks and extra playback controls; HUD visibility only.
+Personal/noncommercial use. Source game resource rights are not independently granted by the application.

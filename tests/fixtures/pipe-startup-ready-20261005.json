@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "source": "local-validation/product-preview-20261003-01/sessions/pipe-probe-e8f3ac74edede7e8ce81e1f065869642/engine.log",
+  "source_sha256": "4bde77bd73430931abbeca707f9fc20f550b001292f4478991929b8b6b4b923d",
+  "source_bytes": 37920,
+  "source_line_count": 411,
+  "source_finalized": true,
+  "fixture_sha256": "93113fcbc7c74a9a2c690b0ca4d6f50558014f780796daf69ae30693479c0c10",
+  "fixture_bytes": 409,
+  "source_lines": [
+    136,
+    287,
+    378,
+    381,
+    382,
+    385
+  ],
+  "scope": "Startup qualification only; no command execution or replay proof.",
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

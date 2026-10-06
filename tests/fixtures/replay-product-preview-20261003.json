@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "source": "local-validation/product-preview-20261003-01/sessions/preview-2b370a5a44df46e186d73828b139adf4/engine.log",
+  "source_sha256": "ad6a729ea0357ed66bc0d356a2d272625736908abb0160497f28f96f473d9fec",
+  "fixture_sha256": "cf6ba2bf3b9c51a66015e078bc0b6e88f28f7f0400c03796be4d9ae0a20f59ad",
+  "session": "preview-2b370a5a44df46e186d73828b139adf4",
+  "nonce": "6421c79df6b16ab69ad58fe0a00fff3f",
+  "process_identity": {
+    "pid": 31928,
+    "created": 134354714372933620,
+    "executable": "D:\\steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\bin\\win64\\cs2.exe"
+  },
+  "records": [
+    {
+      "source_line": 881,
+      "meaning": "exact_start_pause"
+    },
+    {
+      "source_line": 882,
+      "meaning": "exact_start_engine"
+    },
+    {
+      "source_line": 883,
+      "meaning": "wrong_player_at_start"
+    },
+    {
+      "source_line": 884,
+      "meaning": "target_first_person_at_start"
+    },
+    {
+      "source_line": 1149,
+      "meaning": "manual_playback_unpaused"
+    },
+    {
+      "source_line": 1168,
+      "meaning": "manual_playback_middle"
+    },
+    {
+      "source_line": 1182,
+      "meaning": "exact_end_pause"
+    },
+    {
+      "source_line": 1183,
+      "meaning": "exact_end_engine"
+    },
+    {
+      "source_line": 1184,
+      "meaning": "target_first_person_at_end"
+    }
+  ],
+  "scope": "Actual product preparation at start; middle/end follow Sky manual console input, no NVIDIA recording",
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

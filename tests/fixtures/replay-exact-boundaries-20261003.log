@@ -1,0 +1,8 @@
+10/03 02:50:28 CGameRules - paused on tick 15934
+10/03 02:50:28 [Demo] Demo paused at engine time 15934, demo tick 12602
+10/03 02:50:28 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":241,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12602,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}
+10/03 02:55:08 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":799,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12602,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1288,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199198478034"}
+10/03 02:55:18 CGameRules - unpaused on tick 15934, pause duration was 0 ticks
+10/03 02:55:30 CGameRules - paused on tick 16732
+10/03 02:55:30 [Demo] Demo paused at engine time 16732, demo tick 13400
+10/03 02:55:31 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":844,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":13400,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1288,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199198478034"}

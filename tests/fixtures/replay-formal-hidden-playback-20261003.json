@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "source": "local-validation/product-preview-20261003-01/sessions/preview-8a715d7a5d8f4908ac3863232a63d5bd/engine.log",
+  "source_sha256": "c5dfb4f380aacfb3e89d8693c9843473c8946add429b500edb4a804554eefa2c",
+  "source_bytes": 272375,
+  "source_line_count": 1216,
+  "source_finalized": true,
+  "fixture_sha256": "b305347730b6de8f726a0390e850bd95a0988476c392906700320b254076dc57",
+  "session": "preview-8a715d7a5d8f4908ac3863232a63d5bd",
+  "nonce": "64ea14e2b2f79ab06af9674cc54ac6e3",
+  "process_identity": {
+    "pid": 34192,
+    "created": 134354941495233342,
+    "executable": "D:\\steam\\steamapps\\common\\Counter-Strike Global Offensive\\game\\bin\\win64\\cs2.exe"
+  },
+  "records": [
+    {
+      "source_line": 846,
+      "meaning": "exact_start_pause"
+    },
+    {
+      "source_line": 847,
+      "meaning": "exact_start_engine"
+    },
+    {
+      "source_line": 848,
+      "meaning": "wrong_player_at_start"
+    },
+    {
+      "source_line": 849,
+      "meaning": "target_first_person_at_start"
+    },
+    {
+      "source_line": 1017,
+      "meaning": "fresh_start_before_binding"
+    },
+    {
+      "source_line": 1018,
+      "meaning": "empty_binding_begin"
+    },
+    {
+      "source_line": 1019,
+      "meaning": "empty_binding_value"
+    },
+    {
+      "source_line": 1020,
+      "meaning": "empty_binding_end"
+    },
+    {
+      "source_line": 1021,
+      "meaning": "start_between_queries"
+    },
+    {
+      "source_line": 1022,
+      "meaning": "binding_execution_echo_header"
+    },
+    {
+      "source_line": 1023,
+      "meaning": "binding_execution_echo"
+    },
+    {
+      "source_line": 1024,
+      "meaning": "installed_binding_begin"
+    },
+    {
+      "source_line": 1025,
+      "meaning": "installed_binding_value"
+    },
+    {
+      "source_line": 1026,
+      "meaning": "installed_binding_end"
+    },
+    {
+      "source_line": 1027,
+      "meaning": "start_after_install"
+    },
+    {
+      "source_line": 1112,
+      "meaning": "fresh_start_before_play"
+    },
+    {
+      "source_line": 1113,
+      "meaning": "playback_unpaused"
+    },
+    {
+      "source_line": 1114,
+      "meaning": "playback_first_movement"
+    },
+    {
+      "source_line": 1115,
+      "meaning": "playback_movement_10404"
+    },
+    {
+      "source_line": 1116,
+      "meaning": "playback_movement_10437"
+    },
+    {
+      "source_line": 1120,
+      "meaning": "playback_last_movement"
+    },
+    {
+      "source_line": 1121,
+      "meaning": "exact_end_pause"
+    },
+    {
+      "source_line": 1122,
+      "meaning": "exact_end_engine"
+    },
+    {
+      "source_line": 1123,
+      "meaning": "target_first_person_at_end"
+    },
+    {
+      "source_line": 1216,
+      "meaning": "last_endpoint_report"
+    }
+  ],
+  "binding_queries": [
+    {
+      "kind": "original_empty",
+      "nonce": "34ac57e0e30e4687b6d0c70d3c1091af",
+      "value": "",
+      "source_lines": [
+        1018,
+        1019,
+        1020
+      ]
+    },
+    {
+      "kind": "installed",
+      "nonce": "8c314689b4da4e43aeb385dd8d47e2f0",
+      "value": "unbind F8; demo_resume; demo_pauseatservertick 13810",
+      "source_lines": [
+        1024,
+        1025,
+        1026
+      ]
+    }
+  ],
+  "final_binding_query_in_source": false,
+  "binding_query_count_in_source": 2,
+  "source_summary": {
+    "state": "complete",
+    "error": "",
+    "restoration": {
+      "gameinfo": "restored",
+      "pov": "restored",
+      "config_6": "restored",
+      "config_1": "restored",
+      "config_0": "restored",
+      "config_3": "restored",
+      "config_4": "restored",
+      "config_5": "restored",
+      "config_2": "restored"
+    },
+    "console_step_token": null,
+    "playback": {
+      "state": "ended",
+      "triggered": true,
+      "binding_may_exist": true
+    }
+  },
+  "death_analysis": {
+    "source": "local-validation/product-preview-20261003-01/cache/analysis-v2-controller1-demoparser-0.42.0-c2a52a4b2d536053c64f369bc804fa19a3607f0d8484f9444606cce3485867b4.json",
+    "demo_fingerprint": {
+      "sha256": "c2a52a4b2d536053c64f369bc804fa19a3607f0d8484f9444606cce3485867b4",
+      "bytes": 89491937,
+      "mtime_ns": 1790648925427492300
+    },
+    "parser": "demoparser2-0.42.0",
+    "death": {
+      "player": "76561199198478034",
+      "tick": 10479
+    },
+    "timeline_pairs": [
+      [
+        10350,
+        13682
+      ],
+      [
+        10478,
+        13810
+      ],
+      [
+        10479,
+        13811
+      ]
+    ]
+  },
+  "scope": "Formal product buttons verified unused F8 and exact installation, hid console, triggered once and observed exact pre-death paused endpoint. Full source contains no final runtime binding query; ended is not verified and self-unbind execution is not proved by an installed command string. Product reports exit/file restoration, not an independent restoration audit. No NVIDIA recording. Excerpt parsing does not prove UI visibility or full polling cadence.",
+  "privacy_note": "Windows account path anonymized to 测试员; telemetry and event values unchanged. Fixture hash describes the anonymized excerpt; source hash describes the original private log."
+}

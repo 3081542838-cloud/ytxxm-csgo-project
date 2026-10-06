@@ -1,0 +1,11 @@
+10/03 02:36:57 [Demo] Demo Skipping: skipping to demo tick 12602 (game tick 15934) from full packet 11520 (14852).  Current playback is 2754 (6086)
+10/03 02:36:57 [Demo] Demo Skipping flushing last 1083 messages, tick 12602 start 11520 goal 12602
+10/03 02:36:57 [Demo] Demo Skipping finished at tick 12602
+10/03 02:36:57 CGameRules - paused on tick 15935
+10/03 02:36:58 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":99,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12602,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1134,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199797409805"}
+10/03 02:37:33 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":168,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12602,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1288,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199198478034"}
+10/03 02:38:11 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":245,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":12602,"bIsPaused":true,"nObserverMode":3,"nSpectatingPlayerId":1288,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199198478034"}
+10/03 02:39:16 CGameRules - unpaused on tick 15935, pause duration was 0 ticks
+10/03 02:39:29 CGameRules - paused on tick 16732
+10/03 02:39:29 [Demo] Demo paused at engine time 16732, demo tick 13400
+10/03 02:39:47 [PanoramaScript] POV_READBACK {"nonce":"READBACK_20261003_04","sequence":436,"context":"HudDemoController","state":{"sFileName":"C:/Users/测试员/AppData/Roaming/Wmpvp/demo/9210181067658518284_0.dem","nTick":13400,"bIsPaused":true,"nObserverMode":2,"nSpectatingPlayerId":1288,"bIsPlayingDemoFile":true,"bIsPlayingBroadcast":false},"xuid":"76561199198478034"}
