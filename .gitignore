@@ -14,3 +14,9 @@ resources/private/
 local-validation/
 *.dem
 *.mp4
+
+# Local handoff regression artifacts
+/handoff-regression-*/
+/handoff-tests-*/
+/hud-handoff-regression-*/
+/启动验收版.cmd

@@ -36,8 +36,10 @@ def resource_bytes(base, nonce):
     archive = validate_resource(base, BASE_SHA256, set(PATHS))
     files = {e.path:e.data for e in archive.entries}
     scripts = Path(__file__).resolve().parents[1]/"resources"
-    visibility = read_small(scripts/"pov_visibility.js")
-    template = read_small(scripts/"replay_telemetry.js")
+    # The audited VPK slot uses LF. Windows Git checkouts can package CRLF
+    # assets; canonicalize only newlines, retaining the exact slot comparison.
+    visibility = read_small(scripts/"pov_visibility.js").replace(b'\r\n', b'\n')
+    template = read_small(scripts/"replay_telemetry.js").replace(b'\r\n', b'\n')
     if template.count(MARKER)!=1:
         raise DataError("回读脚本会话标记结构无效。")
     replacement = visibility+b'\n'+template.replace(MARKER,nonce.encode('ascii'))

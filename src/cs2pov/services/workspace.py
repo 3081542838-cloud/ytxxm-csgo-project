@@ -469,6 +469,8 @@ class Workspace(QObject):
         if self.busy:
             raise DataError('已有任务正在执行。')
         self.ensure_idle()
+        if not self.settings.nvidia_path_confirmed:
+            raise DataError('请先确认 NVIDIA 实际视频保存目录。')
         if self.automatic_recording and self.input_check is not None:
             self.input_check()
         self._auto_capture_requested = True
@@ -613,13 +615,35 @@ class Workspace(QObject):
             self._preview_timer.stop()
             self._preview = None
             self.set_busy(False)
+            if preview.error:
+                self.task_text = self.preview_status
             self.refresh_recovery()
         else:
-            if self._auto_capture_requested and preview.state == 'ready':
-                preview.prepare_playback()
-            elif self._auto_capture_requested and preview.state == 'play_ready':
+            try:
+                if self._auto_capture_requested and preview.state == 'ready':
+                    preview.prepare_playback()
+                elif self._auto_capture_requested and preview.state == 'play_ready':
+                    self.start_recording()
+                    self._auto_capture_requested = False
+                    return
+            except Exception as error:
+                # Qt timer exceptions cannot leave a paused preview stranded.
+                # Consume the request, retain the cause and use owned cleanup;
+                # never retry an uncertain NVIDIA toggle.
                 self._auto_capture_requested = False
-                self.start_recording()
+                message = '自动录制衔接失败：' + str(error)
+                preview.error += ('\n' if preview.error else '') + message
+                if self._recording_task is not None:
+                    self._recording_task.cancel()
+                    self.poll_recording()
+                    return
+                try:
+                    preview.stop()
+                except Exception as close_error:
+                    preview.state = 'recovery_blocked'
+                    preview.error += '\n安全收尾未完成，保留备份：' + str(close_error)
+                preview._persist()
+                self.poll_preview()
                 return
             self.changed.emit()
 

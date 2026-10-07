@@ -2,3 +2,6 @@
 tests/fixtures/*.log -text
 resources/bundled/*.vpk -text
 tests/fixtures/*.log whitespace=cr-at-eol
+src/cs2pov/resources/*.js text eol=lf
+resources/bundled/LICENSE text eol=lf
+resources/bundled/THIRD_PARTY_LICENSES.md text eol=lf

@@ -3,6 +3,7 @@ import pytest
 from PySide6.QtWidgets import QLabel, QPushButton
 from PySide6.QtWidgets import QMessageBox
 from types import SimpleNamespace
+from dataclasses import replace
 from cs2pov.services.workspace import Workspace
 from cs2pov.storage.settings import DataError
 from cs2pov.ui.window import MainWindow
@@ -56,6 +57,7 @@ def test_denied_input_stops_before_preview_or_file_deployment(client, monkeypatc
     calls = []
     def blocked():
         raise DataError('Windows 拒绝自动按键')
+    model.settings = replace(model.settings, nvidia_path_confirmed=True)
     model.input_check = blocked
     monkeypatch.setattr(model, 'start_preview', lambda: calls.append('preview'))
     with pytest.raises(DataError, match='拒绝自动按键'):

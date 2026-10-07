@@ -89,6 +89,23 @@ def begin_recording(model, env):
     return task
 
 
+def test_capture_handoff_starts_direct_recording_and_playback_once(desktop):
+    model, preview, env = desktop
+    model.automatic_recording = True
+    model._auto_capture_requested = True
+    env.foreground = env.identity.pid
+    model.poll_preview()
+    assert model._recording_task is not None
+    assert not model._auto_capture_requested
+    assert (preview.session / 'recording-task.json').is_file()
+    for _ in range(6):
+        fresh(env)
+        model.poll_preview()
+    assert env.inputs == ['Alt+F9']
+    assert env.keys == 1
+    assert model._recording_task.state == 'recording'
+
+
 def test_default_factory_success_uses_same_preview_game_scope_and_three_atomic_checkpoints(desktop, qtbot):
     model, preview, env = desktop
     before = Path(preview.draft['demo']).read_bytes()

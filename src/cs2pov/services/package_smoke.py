@@ -10,6 +10,7 @@ import sys
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--data-dir', type=Path, required=True)
+    parser.add_argument('--hud', type=Path)
     args = parser.parse_args(argv)
     from cs2pov.storage.transaction import atomic_write, no_redirection
     from cs2pov.storage.library import Library
@@ -40,6 +41,15 @@ def main(argv=None):
             assert library.records() == [] and library.unfinished() == []
         finally:
             library.close()
+        session_hud = None
+        if args.hud is not None:
+            from cs2pov.services.telemetry_resource import build_session_resource, verify_session_resource
+            first = build_session_resource(args.hud, args.data_dir / 'session-first.vpk')
+            second = build_session_resource(args.hud, args.data_dir / 'session-second.vpk')
+            assert first.nonce != second.nonce and first.sha256 != second.sha256
+            assert verify_session_resource(first, first.path) == first.sha256
+            assert verify_session_resource(second, second.path) == second.sha256
+            session_hud = dict(ok=True, distinct_sessions=True, sha256=first.sha256)
         result = dict(schema=1, ok=True, frozen=bool(getattr(sys, 'frozen', False)),
                       runtime={name: version(name) for name in ('PySide6-Essentials', 'demoparser2', 'comtypes', 'pandas', 'numpy',
                                'polars', 'polars-runtime-32', 'pyarrow', 'tqdm')},
@@ -47,6 +57,7 @@ def main(argv=None):
                       stage='internal-only', game_started=False, recording_triggered=False,
                       gui_started=False, network_used=False, sqlite=True,
                       parser_dataframe_bridge=True,
+                      session_hud=session_hud,
                       imports={name: True for name in ('PySide6', 'demoparser2', 'pandas', 'numpy', 'comtypes',
                                'polars', '_polars_runtime_32', 'pyarrow', 'tqdm')})
         code = 0

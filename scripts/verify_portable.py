@@ -38,10 +38,11 @@ def main():
             stderr=subprocess.DEVNULL, creationflags=subprocess.CREATE_NO_WINDOW)
         if completed.returncode:
             raise RuntimeError('便携进程失败：' + str(options))
-    run(['--package-smoke', '--data-dir', directory / 'runtime'], 60)
+    run(['--package-smoke', '--data-dir', directory / 'runtime', '--hud', folder / 'resources/pov.vpk'], 60)
     runtime = json.loads((directory / 'runtime/package-smoke-result.json').read_text())
     assert runtime['ok'] and runtime['frozen'] and runtime['parser_dataframe_bridge'] and runtime['sqlite']
     assert all(runtime['imports'].values())
+    assert runtime['session_hud']['ok'] and runtime['session_hud']['distinct_sessions']
     for asset in ('shrimp.ico', 'replay_telemetry.js', 'pov_visibility.js'):
         assert runtime['assets'][asset] == build.file_sha256(root / 'src/cs2pov/resources' / asset)
     resources = None

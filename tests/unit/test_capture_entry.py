@@ -6,7 +6,8 @@ from cs2pov.storage.settings import DataError
 
 def test_capture_start_arms_continuation_before_preview():
     model = SimpleNamespace(busy=False, _auto_capture_requested=False,
-                            ensure_idle=lambda: None, automatic_recording=False, input_check=None)
+                            ensure_idle=lambda: None, automatic_recording=False, input_check=None,
+                            settings=SimpleNamespace(nvidia_path_confirmed=True))
     calls = []
     model.start_preview = lambda: calls.append(model._auto_capture_requested)
     Workspace.start_capture(model)
@@ -15,7 +16,8 @@ def test_capture_start_arms_continuation_before_preview():
 
 def test_capture_failure_does_not_leave_automatic_continuation():
     model = SimpleNamespace(busy=False, _auto_capture_requested=False,
-                            ensure_idle=lambda: None, automatic_recording=False, input_check=None)
+                            ensure_idle=lambda: None, automatic_recording=False, input_check=None,
+                            settings=SimpleNamespace(nvidia_path_confirmed=True))
     def fail():
         raise DataError('missing configuration')
     model.start_preview = fail
