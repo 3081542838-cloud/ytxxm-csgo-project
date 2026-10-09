@@ -164,12 +164,43 @@ def test_unavailable_highlight_is_visible_but_cannot_save(desktop, tmp_path):
     assert not window.save_clip.isEnabled() and not window.timeline.ticks
 
 
-def test_radar_not_enabled_by_generic_refresh_or_preset_save(desktop):
+def test_native_radar_default_hidden_and_refresh_does_not_change_choice(desktop):
     model, window = desktop
-    assert not window.radar_option.isEnabled() and not window.radar_option.isChecked()
+    # User explicitly replaced the gated POV radar with official spectator radar.
+    assert window.radar_option.isEnabled() and not window.radar_option.isChecked()
     model.changed.emit()
     window.save_preset()
-    assert not window.radar_option.isEnabled() and not window.radar_option.isChecked()
+    assert window.radar_option.isEnabled() and not window.radar_option.isChecked()
+    window.radar_option.setChecked(True)
+    window.save_preset()
+    model.changed.emit()
+    assert window.radar_option.isChecked()
+    assert model.presets.items[0].show_radar is True
+    model.set_busy(True)
+    assert not window.radar_option.isEnabled()
+    model.set_busy(False)
+    assert window.radar_option.isEnabled() and window.radar_option.isChecked()
+    window.reset_preset()
+    assert not window.radar_option.isChecked()
+    assert model.presets.items[0].show_radar is False
+
+
+def test_native_radar_selection_freezes_and_reopens(desktop, tmp_path):
+    model, window = desktop
+    window.radar_option.setChecked(True)
+    window.save_preset()
+    prepare_saved_time(model, tmp_path)
+    saved = model.library.draft()['selection']
+    assert saved['hud']['show_radar'] is True
+    window.radar_option.setChecked(False)
+    window.save_preset()
+    assert model.library.draft()['selection']['hud']['show_radar'] is True
+    reopened = Workspace(model.directory)
+    try:
+        assert reopened.library.draft()['selection']['hud']['show_radar'] is True
+        assert reopened.presets.items[0].show_radar is False
+    finally:
+        reopened.library.close()
 
 
 def prepare_saved_time(model, tmp_path):

@@ -51,7 +51,8 @@ def preview_commands(analysis, draft):
     # commands in one console submission and pauses at the requested tick.
     result = ["demo_pause", f"demo_gototick {clip['start_tick']}; demo_pause",
               "demo_timescale 1", "spec_autodirector 0", "spec_mode 2", f"spec_player {name}",
-              "cl_drawhud_force_radar -1", "spec_show_xray 0", "demo_ui_mode 0",
+              *(["cl_radar_square_when_spectating 1", "cl_drawhud_force_radar 1"] if preset.show_radar
+                else ["cl_drawhud_force_radar -1"]), "spec_show_xray 0", "demo_ui_mode 0",
               "cl_trueview_show_status 0",
               f"hud_scaling {preset.hud_scale:g}", f"viewmodel_fov {preset.viewmodel_fov:g}",
               f"viewmodel_offset_x {preset.viewmodel_x:g}", f"viewmodel_offset_y {preset.viewmodel_y:g}",

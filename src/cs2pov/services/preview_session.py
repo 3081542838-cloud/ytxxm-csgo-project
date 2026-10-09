@@ -22,7 +22,7 @@ from cs2pov.services.replay import ReplayController, ReplayError, preview_comman
 from cs2pov.services.replay_preparation import ReplayPreparation
 from cs2pov.services.hidden_playback import HiddenPlayback
 from cs2pov.services.telemetry_resource import build_session_resource
-from cs2pov.storage.settings import DataError
+from cs2pov.storage.settings import DataError, HudPreset
 from cs2pov.storage.transaction import atomic_write, no_redirection
 
 
@@ -94,7 +94,9 @@ class PreviewSession:
             self.resource_directory.mkdir(parents=True,exist_ok=False)
             resources = self.resource_directory/'resources'
             resources.mkdir()
-            self.resource = self.builder(self.base,resources/'session-pov.vpk')
+            hud = HudPreset.decode(self.draft['selection']['hud'])
+            self.resource = (self.builder(self.base,resources/'session-pov.vpk',native_radar=True)
+                             if hud.show_radar else self.builder(self.base,resources/'session-pov.vpk'))
             check = self.checker(Path(self.settings.installation),Path(self.draft['demo']),
                 Path(self.settings.video_directory),self.resource.path,Path(self.settings.cfg),telemetry=self.resource)
             self.check = check

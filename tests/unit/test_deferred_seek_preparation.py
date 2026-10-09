@@ -75,10 +75,41 @@ def test_deferred_seek_requires_owned_pipe_before_any_game_input(tmp_path):
     assert env.sent == [] and prep.state == 'failed'
 
 
+@pytest.mark.parametrize('change', [dict(paused=False), dict(tick=13399)])
+def test_already_paused_load_must_keep_its_anchor_through_seek_ledger(tmp_path, change):
+    prep, env, console, decoder, _, _, _ = setup(tmp_path)
+    before = tuple(env.writes)
+    persist = console.persist
+    def mutate(path, payload):
+        persist(path, payload)
+        decoder.snapshot_value = replace(decoder.snapshot_value, **change)
+    console.persist = mutate
+    with pytest.raises(ReplayError, match='暂停位置'):
+        prep.begin(loading_since=env.time, loading_deadline=env.time+120)
+    assert tuple(env.writes) == before
+    assert prep.state == 'failed' and console.state == 'failed'
+
+
+def test_running_load_still_sends_owned_pause_before_deferred_seek(tmp_path):
+    prep, env, console, _, _, report, _ = setup(tmp_path)
+    report(13400, paused=False)
+    write = console.pipes.backend.write
+    def observed_pause(handle, payload, **kwargs):
+        result = write(handle, payload, **kwargs)
+        if payload == b'demo_pause\n':
+            report(13400, paused=True, server=16732)
+        return result
+    console.pipes.backend.write = observed_pause
+    prep.begin(loading_since=env.time, loading_deadline=env.time+120)
+    assert env.writes[-2:] == [b'demo_pause\n', b'demo_gototick 12282\n']
+    assert prep.state == 'settling_seek'
+
+
 def test_deferred_seek_waits_for_movement_then_actual_server_pause_without_widening_cut(tmp_path):
     prep, env, console, decoder, _, report, advance = settling(tmp_path)
     assert prep.preroll_tick == 12282  # Five seconds before the original cut.
-    assert env.writes[-2:] == [b'demo_pause\n', b'demo_gototick 12282\n']
+    assert env.writes[-1:] == [b'demo_gototick 12282\n']
+    assert b'demo_pause\n' not in env.writes  # Already paused: never toggle it into playback.
     assert prep.state == 'settling_seek'
     since, deadline = prep.since, prep.deadline
     report(12282)  # First target frame may still precede engine seek completion.
@@ -115,7 +146,7 @@ def test_deferred_seek_waits_for_movement_then_actual_server_pause_without_widen
     assert prep.draft['selection']['start_tick'] == 12602
     assert prep.draft['selection']['server_start_tick'] == 15934
     assert prep.draft.get('position_tolerance_ticks', 0) == 0
-    assert sum(value == b'demo_pause\n' for value in env.writes) == 2
+    assert sum(value == b'demo_pause\n' for value in env.writes) == 1
 
 
 @pytest.mark.parametrize('case', ['missing', 'requested', 'before', 'too_far', 'wrong_demo',

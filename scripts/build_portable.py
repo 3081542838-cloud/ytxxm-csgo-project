@@ -61,6 +61,8 @@ def assemble(root, candidate, executable):
         'NVIDIA 保存目录需与你在应用中设置的一致，开始任务前确保当前未录制。\n'
         '导入 Demo，选玩家和片段，保存草稿，点击开始录制。任务期间保持 CS2 前台并松开键鼠。\n'
         '应用会在本地回放中临时部署 HUD，结束后退出本次游戏并恢复文件。\n'
+        'HUD 设置中可选“显示官方方形雷达”，默认关闭；使用原生 Demo 雷达，可能显示双方位置。\n'
+        '修改 HUD 后先保存预设、设为默认，再重新保存片段草稿；已保存草稿保留原任务参数。\n'
         '给朋友请发送初始压缩包，不要把已使用的 data 和恢复备份发给别人。\n'
         '仅供个人及朋友非商业使用；第二台电脑的实际录制仍需本机验收。\n', encoding='utf-8')
     rows = [{ 'path': file.relative_to(folder).as_posix(), 'bytes': file.stat().st_size,

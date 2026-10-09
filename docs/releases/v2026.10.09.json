@@ -1,0 +1,41 @@
+{
+  "release": "v2026.10.09",
+  "application": "虾米 POV",
+  "date": "2026-10-09",
+  "artifact": "xiamipov_main.zip",
+  "zip_bytes": 146684518,
+  "zip_sha256": "cb708d2f87f9f556091341b6e3fd3ee6cc344ffce4b41007e46b8652bf05937e",
+  "executable": {
+    "path": "XiamiPOV/虾米pov.exe",
+    "bytes": 147296630,
+    "sha256": "6c3092373a005b45899600483ad6ab978ba3d232522f1bc2bf899892fca3e26a"
+  },
+  "hud": {
+    "path": "XiamiPOV/resources/pov.vpk",
+    "bytes": 410376,
+    "sha256": "98cffb9688c227a5f8edba50508e25cef0568a9e541ba6024d9d0eac24828af9"
+  },
+  "checks": {
+    "archive_crc": true,
+    "clean_profile": true,
+    "frozen_runtime": true,
+    "native_imports": true,
+    "parser_dataframe_bridge": true,
+    "native_radar": true,
+    "original_demo_readonly": true,
+    "production_source_matches_build": true,
+    "application_bytes_changed_during_cleanup": false,
+    "license_review_complete": false,
+    "live_game_recording_this_run": false
+  },
+  "tests": {
+    "date": "2026-10-09",
+    "collected": 2397,
+    "junit_cases_including_subtests": 2401,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "collection_preserved": true,
+    "pip_check": true
+  }
+}

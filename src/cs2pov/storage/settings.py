@@ -134,11 +134,17 @@ class HudPreset:
     viewmodel_x: float = 2.5
     viewmodel_y: float = 0.0
     viewmodel_z: float = -1.5
+    show_radar: bool = False
 
     @classmethod
     def decode(cls, raw):
+        # Existing presets and frozen tasks predate the optional native radar.
+        if isinstance(raw, dict) and set(raw) == set(cls.__dataclass_fields__) - {"show_radar"}:
+            raw = {**raw, "show_radar": False}
         if not isinstance(raw, dict) or set(raw) != set(cls.__dataclass_fields__):
             raise DataError("HUD 预设结构无效。")
+        if type(raw["show_radar"]) is not bool:
+            raise DataError("雷达显示选项必须为布尔值。")
         if not isinstance(raw["id"], str) or not re.fullmatch(r"[a-zA-Z0-9_-]{1,64}", raw["id"]):
             raise DataError("HUD 标识无效。")
         if not isinstance(raw["name"], str) or not raw["name"].strip() or len(raw["name"]) > 40:
@@ -161,12 +167,14 @@ class Presets:
 
     @staticmethod
     def decode(raw):
-        if isinstance(raw, dict) and type(raw.get("schema")) is int and raw["schema"] > 1:
+        if isinstance(raw, dict) and type(raw.get("schema")) is int and raw["schema"] > 2:
             raise DataVersionError("HUD 文件来自更新版本，不能降级覆盖。")
-        if not isinstance(raw, dict) or set(raw) != {"schema", "default", "items"} or type(raw["schema"]) is not int or raw["schema"] != 1:
+        if not isinstance(raw, dict) or set(raw) != {"schema", "default", "items"} or type(raw["schema"]) is not int or raw["schema"] not in (1, 2):
             raise DataError("HUD 文件版本或结构无效。")
         if not isinstance(raw["items"], list) or not 1 <= len(raw["items"]) <= 30:
             raise DataError("预设数量无效。")
+        if raw['schema'] == 2 and any(not isinstance(item, dict) or 'show_radar' not in item for item in raw['items']):
+            raise DataError('新版 HUD 预设缺少雷达选项。')
         items = [HudPreset.decode(item) for item in raw["items"]]
         ids = [item.id for item in items]
         if len(set(ids)) != len(ids) or "builtin" not in ids or raw["default"] not in ids:
@@ -174,7 +182,7 @@ class Presets:
         return items, raw["default"]
 
     def commit(self, items, default):
-        raw = {"schema": 1, "items": [asdict(item) for item in items], "default": default}
+        raw = {"schema": 2, "items": [asdict(item) for item in items], "default": default}
         self.file.save(raw)
         self.items, self.default = items, default
 

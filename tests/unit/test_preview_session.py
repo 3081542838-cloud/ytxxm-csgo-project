@@ -98,6 +98,23 @@ def test_unicode_session_path_is_rejected_before_resources_or_game_changes(tmp_p
     assert not preview.session.exists()
 
 
+@pytest.mark.parametrize('show', [False, True])
+def test_preview_builds_native_radar_from_its_frozen_snapshot(tmp_path, show):
+    preview, env, _ = setup(tmp_path)
+    preview.draft['selection']['hud']['show_radar'] = show
+    original = preview.builder
+    calls = []
+    def builder(base, path, **kwargs):
+        calls.append(kwargs)
+        return original(base, path)
+    preview.builder = builder
+    preview.start()
+    assert calls == ([{'native_radar': True}] if show else [{}])
+    preview.stop()
+    preview.poll()
+    assert env.restored == 1 and not env.running
+
+
 def automatic_setup(tmp_path):
     from cs2pov.adapters.binding_log import BindingEvidence
     from cs2pov.adapters.command_pipe import CommandPipes

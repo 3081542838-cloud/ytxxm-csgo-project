@@ -201,7 +201,7 @@ class MainWindow(QMainWindow):
         hud = card(middle, "画面与保存")
         badge = label("仿实战 HUD", "pill")
         hud.addWidget(badge)
-        hud.addWidget(label("保留血量、弹药、准星与击杀提示。\n隐藏雷达、观战提示与回放控制条。", "muted"))
+        hud.addWidget(label("保留血量、弹药、准星与击杀提示。\n雷达可选；隐藏观战提示与回放控制条。", "muted"))
         edit = button("调整 HUD 预设", lambda: self.navigate(2))
         edit.setIcon(outline_icon("settings"))
         hud.addWidget(edit)
@@ -327,7 +327,7 @@ class MainWindow(QMainWindow):
         clip.addWidget(self.preview_stop)
         info = card(self.demo_split.columns, "画面与录制")
         info.addWidget(label("仿实战 HUD", "pill"))
-        info.addWidget(label("保留血量、弹药、准星与击杀提示。\n隐藏雷达、观战提示与回放控制条。", "muted"))
+        info.addWidget(label("保留血量、弹药、准星与击杀提示。\n雷达可选；隐藏观战提示与回放控制条。", "muted"))
         info.addWidget(button("调整 HUD", lambda: self.navigate(2)))
         info.addWidget(label("视频保存位置", "section"))
         self.demo_output_path = label("未设置", "muted")
@@ -564,7 +564,7 @@ class MainWindow(QMainWindow):
 
     def build_hud(self, body):
         controls = card(body, "仿实战 HUD")
-        controls.addWidget(label("保留血量、护甲、弹药、准星、比分和击杀提示。隐藏雷达、观战提示、回放控制条及 X 光。", "muted"))
+        controls.addWidget(label("保留血量、护甲、弹药、准星、比分和击杀提示。雷达可选；隐藏观战提示、回放控制条及 X 光。", "muted"))
         controls.addWidget(label("参数先保存在本地；生效和兼容性将在实际回放预览中验证。", "muted"))
         self.preset_choice = QComboBox()
         self.preset_choice.currentIndexChanged.connect(self.load_preset)
@@ -586,10 +586,9 @@ class MainWindow(QMainWindow):
             self.hud_fields[key] = spin
             form.addRow(text, spin)
         controls.addLayout(form)
-        self.radar_option = QCheckBox("显示左上角雷达（验证中）")
-        self.radar_option.setEnabled(False)
+        self.radar_option = QCheckBox("显示官方方形雷达")
         controls.addWidget(self.radar_option)
-        controls.addWidget(label("当前保持隐藏。敌情显示尚未验证，圆形外观不代表已还原实战信息。", "muted"))
+        controls.addWidget(label("使用 CS2 原生 Demo 雷达，可能显示双方位置。默认隐藏；退出后恢复原游戏配置。修改后重新保存片段草稿才会应用。", "muted"))
         actions = QHBoxLayout()
         self.hud_save = button("保存预设", self.save_preset, True)
         self.hud_copy = button("复制", lambda: self.preset_action("copy"))
@@ -599,7 +598,7 @@ class MainWindow(QMainWindow):
         for action in (self.hud_save, self.hud_copy, self.hud_default, self.hud_delete, self.hud_reset):
             actions.addWidget(action)
         controls.addLayout(actions)
-        self.editor_widgets += [self.preset_choice, self.preset_name, self.crosshair, *self.hud_fields.values(),
+        self.editor_widgets += [self.preset_choice, self.preset_name, self.crosshair, self.radar_option, *self.hud_fields.values(),
                                 self.hud_save, self.hud_copy, self.hud_default, self.hud_delete, self.hud_reset]
 
     def load_preset(self, _=None):
@@ -608,6 +607,7 @@ class MainWindow(QMainWindow):
         if item:
             self.preset_name.setText(item.name)
             self.crosshair.setText(item.crosshair)
+            self.radar_option.setChecked(item.show_radar)
             for key, spin in self.hud_fields.items():
                 spin.setValue(getattr(item, key))
             self.hud_delete.setEnabled(id != "builtin" and not self.workspace.busy)
@@ -615,7 +615,8 @@ class MainWindow(QMainWindow):
     def save_preset(self):
         id = self.preset_choice.currentData()
         self.call(lambda: self.workspace.save_preset(HudPreset(id=id, name=self.preset_name.text(),
-                    crosshair=self.crosshair.text(), **{key: spin.value() for key, spin in self.hud_fields.items()})))
+                    crosshair=self.crosshair.text(), show_radar=self.radar_option.isChecked(),
+                    **{key: spin.value() for key, spin in self.hud_fields.items()})))
 
     def preset_action(self, operation):
         result = self.call(lambda: self.workspace.preset_action(operation, self.preset_choice.currentData()))
@@ -625,6 +626,7 @@ class MainWindow(QMainWindow):
     def reset_preset(self):
         default = HudPreset()
         self.crosshair.setText(default.crosshair)
+        self.radar_option.setChecked(default.show_radar)
         for key, spin in self.hud_fields.items():
             spin.setValue(getattr(default, key))
         self.save_preset()
@@ -1001,6 +1003,7 @@ class MainWindow(QMainWindow):
             QTimer.singleShot(0, lambda current=step: self.reveal_preview_step(current))
         self.clip_summary.setText((f"{saved['player']} · {saved['map']} · {saved['start_seconds']:.0f}–{saved['end_seconds']:.0f} 秒"
             f"\n预计 {saved['duration']:.0f} 秒"
+            + (" · 官方方形雷达" if saved.get('hud', {}).get('show_radar', False) else " · 雷达隐藏")
             + ("\n" + "；".join(saved["reasons"]) if saved["reasons"] else "")) if saved else "解析后选择玩家与范围，保存时会锁定当前默认 HUD 参数。")
         self.continue_draft.setEnabled(bool(draft) and not w.busy and not w.recovery)
         self.current_task.setText(w.task_text)

@@ -49,7 +49,17 @@ def main(argv=None):
             assert first.nonce != second.nonce and first.sha256 != second.sha256
             assert verify_session_resource(first, first.path) == first.sha256
             assert verify_session_resource(second, second.path) == second.sha256
-            session_hud = dict(ok=True, distinct_sessions=True, sha256=first.sha256)
+            native = build_session_resource(args.hud, args.data_dir / 'session-native.vpk', native_radar=True)
+            assert native.native_radar is True and native.radar is None
+            assert verify_session_resource(native, native.path) == native.sha256
+            assert native.path.stat().st_size == first.path.stat().st_size
+            from cs2pov.storage.settings import HudPreset, Presets
+            from dataclasses import replace
+            presets = Presets(args.data_dir)
+            presets.save(replace(HudPreset(), show_radar=True))
+            assert Presets(args.data_dir).items[0].show_radar is True
+            session_hud = dict(ok=True, distinct_sessions=True, sha256=first.sha256,
+                               native_radar=True, native_sha256=native.sha256)
         result = dict(schema=1, ok=True, frozen=bool(getattr(sys, 'frozen', False)),
                       runtime={name: version(name) for name in ('PySide6-Essentials', 'demoparser2', 'comtypes', 'pandas', 'numpy',
                                'polars', 'polars-runtime-32', 'pyarrow', 'tqdm')},

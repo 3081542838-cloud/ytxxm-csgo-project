@@ -43,6 +43,7 @@ def main():
     assert runtime['ok'] and runtime['frozen'] and runtime['parser_dataframe_bridge'] and runtime['sqlite']
     assert all(runtime['imports'].values())
     assert runtime['session_hud']['ok'] and runtime['session_hud']['distinct_sessions']
+    assert runtime['session_hud']['native_radar'] is True
     for asset in ('shrimp.ico', 'replay_telemetry.js', 'pov_visibility.js'):
         assert runtime['assets'][asset] == build.file_sha256(root / 'src/cs2pov/resources' / asset)
     resources = None

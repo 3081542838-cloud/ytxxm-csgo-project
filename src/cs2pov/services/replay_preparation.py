@@ -117,8 +117,15 @@ class ReplayPreparation:
                 raise ReplayError("原 Demo 已变化，先重新解析，不发送控制指令。")
             # Seek/pause commands are replaced by the independently checked lead-in.
             self.commands = commands[2:]
-            self.controller.send("demo_pause", deadline=loading_deadline if automatic else None,
-                input_guard=(lambda: loaded_input('idle')) if automatic else None)
+            # On the current asynchronous-seek engine demo_pause toggles an
+            # already paused demo back into playback. Do not send that toggle
+            # when this owned session has fresh proof it is already paused.
+            # Keep the tick anchor and recheck it after the seek's own ledger.
+            if automatic and self.deferred_seek_pause:
+                loaded_input('idle')
+            if not (automatic and self.deferred_seek_pause and paused_tick[0] is not None):
+                self.controller.send("demo_pause", deadline=loading_deadline if automatic else None,
+                    input_guard=(lambda: loaded_input('idle')) if automatic else None)
             if automatic: self._check_deadline(loading_deadline)
             stage = 'settling_seek' if self.deferred_seek_pause else 'seeking'
             self._stage(stage)

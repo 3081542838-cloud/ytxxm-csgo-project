@@ -1,0 +1,279 @@
+{
+  "commit": "f05c698c755dc7806855bb13a5c823dbf6a21de6",
+  "archives": [
+    {
+      "file": "pov--pov_default.vpk",
+      "sha256": "58d823a63a8e8b905b58b79bdf3ceacab1fc37954fabadc4ae81a5b8302a292c",
+      "version": 2,
+      "deployment_approved": false,
+      "entries": [
+        {
+          "path": "panorama/styles/hud/hudalerts_insight.vcss_c",
+          "bytes": 1305,
+          "sha256": "c4227ca5c275a540ea7b9a44e12c60d124ac7f3cc32be7fed33743226f9053ff",
+          "crc32": 2351631620
+        },
+        {
+          "path": "panorama/styles/hud/hudradar.vcss_c",
+          "bytes": 26500,
+          "sha256": "a43677188a9cd8a0cd75c07168eb0aac567847e8ae93afedde2a141c1dbda925",
+          "crc32": 595987324
+        },
+        {
+          "path": "panorama/styles/hud/hudteamcounter.vcss_c",
+          "bytes": 45592,
+          "sha256": "a8cfbe4671d630840d983e7c8a21ca1eed074e5e574f5d437b917d96869850e5",
+          "crc32": 524095070
+        },
+        {
+          "path": "panorama/styles/hud/hudteamcounter-equipmentinfo.vcss_c",
+          "bytes": 10283,
+          "sha256": "5c719afd7106dc6ee360e1644298466b1a2c5811617d9790e7d5c32fb5cac467",
+          "crc32": 2227855700
+        },
+        {
+          "path": "panorama/scripts/hud/hudalerts_insight.vjs_c",
+          "bytes": 2485,
+          "sha256": "2303cbfea15e4baef62f034a7ff8944fc3259db2fd255c2793dca6faaed54157",
+          "crc32": 1810430001
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-01.vsnd_c",
+          "bytes": 23366,
+          "sha256": "99551f7a93cb786b6d3dc2839fc2dd8dfbe28a96d2d3708aad87f9ada94f6360",
+          "crc32": 2142106087
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-02.vsnd_c",
+          "bytes": 23366,
+          "sha256": "b69103356e0cf6e71817c2e2636b4655fb52e0ddfb6c5b0cab11ea4ab0133935",
+          "crc32": 2119152601
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-03.vsnd_c",
+          "bytes": 23366,
+          "sha256": "0cc22bee73e626f84604f3387138ca5c33f331bdef3f9b8f6f5f1087c50fe06b",
+          "crc32": 2989549377
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-04.vsnd_c",
+          "bytes": 23366,
+          "sha256": "c92d7c738ec63cdd5f9e741fbb0835160d6f3aebb2b1e01e53b46a4e874e5dbb",
+          "crc32": 1238734588
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-release-01.vsnd_c",
+          "bytes": 23366,
+          "sha256": "3cbf5430d4e2b073036c31dfa8943895d94fc6500eb0e47ec7a683b11e3e9ac0",
+          "crc32": 3015205975
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-release-02.vsnd_c",
+          "bytes": 23366,
+          "sha256": "d31d9e6097f722d6c36626f9a9545f8686e6ddcf7893c2e1a9ea312c099214b6",
+          "crc32": 994193205
+        },
+        {
+          "path": "sounds/cs2_insight/input/mouse-down.vsnd_c",
+          "bytes": 14486,
+          "sha256": "178c1541e205f42962e46a5e4d198d088699c008f3e26fde851d6630ad5560b3",
+          "crc32": 1097592678
+        },
+        {
+          "path": "sounds/cs2_insight/input/mouse-release.vsnd_c",
+          "bytes": 14086,
+          "sha256": "5063610fe468ef339ea86026cf407d8dea12629b15a24e6625683105879a9234",
+          "crc32": 1699024665
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-01.vsnd_c",
+          "bytes": 23350,
+          "sha256": "e9b106d53df43db43993ae70400efbffc93e727f3edce9e6185ca675ae64e3be",
+          "crc32": 331045794
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-02.vsnd_c",
+          "bytes": 23350,
+          "sha256": "b9a8aad2c5d8a959c721ca2d1f3deef3077402fd09f23395d408f8b0d819f05f",
+          "crc32": 4016394937
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-03.vsnd_c",
+          "bytes": 23350,
+          "sha256": "aec61014af676177ce5f4766efb53e2a922fb9bec2bf921ef298217c7fef0760",
+          "crc32": 4204009663
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-04.vsnd_c",
+          "bytes": 23350,
+          "sha256": "0aad6c8eefaf1746612b8ef90c5df6eab73fc60325e193d7419eb4c95d047887",
+          "crc32": 1489695569
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-release-01.vsnd_c",
+          "bytes": 23350,
+          "sha256": "dd959ce9e5163bfbaaed35d4de5cd5850a555c88e6c94ebc09372e6cdceb6689",
+          "crc32": 2395385848
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-release-02.vsnd_c",
+          "bytes": 23350,
+          "sha256": "adf6a9a3ec9ab3366479eba1ec53888c8f97aa3103a570c4f6056acb91cccff1",
+          "crc32": 3089329653
+        },
+        {
+          "path": "soundevents/soundevents_addon.vsndevts_c",
+          "bytes": 3022,
+          "sha256": "326a8126a8c747bccb753975f73ccbe3ac9727563481716ba109e92afb007a7b",
+          "crc32": 3510839718
+        },
+        {
+          "path": "panorama/layout/hud/hudalerts.vxml_c",
+          "bytes": 1693,
+          "sha256": "6377b23b8f6dc04316b5a62b55d3acfa6cdacbb50198b2fcc9a987e3451d9a6a",
+          "crc32": 2433961466
+        }
+      ]
+    },
+    {
+      "file": "pov--pov_voice_template.vpk",
+      "sha256": "1ecace2f72176a1217c9fb470961a939c3a63bf95d9b97ac202a2316fae72012",
+      "version": 2,
+      "deployment_approved": false,
+      "entries": [
+        {
+          "path": "panorama/styles/hud/hudalerts_insight.vcss_c",
+          "bytes": 1305,
+          "sha256": "c4227ca5c275a540ea7b9a44e12c60d124ac7f3cc32be7fed33743226f9053ff",
+          "crc32": 2351631620
+        },
+        {
+          "path": "panorama/styles/hud/hudradar.vcss_c",
+          "bytes": 26500,
+          "sha256": "a43677188a9cd8a0cd75c07168eb0aac567847e8ae93afedde2a141c1dbda925",
+          "crc32": 595987324
+        },
+        {
+          "path": "panorama/styles/hud/hudteamcounter.vcss_c",
+          "bytes": 45592,
+          "sha256": "a8cfbe4671d630840d983e7c8a21ca1eed074e5e574f5d437b917d96869850e5",
+          "crc32": 524095070
+        },
+        {
+          "path": "panorama/styles/hud/hudteamcounter-equipmentinfo.vcss_c",
+          "bytes": 10283,
+          "sha256": "5c719afd7106dc6ee360e1644298466b1a2c5811617d9790e7d5c32fb5cac467",
+          "crc32": 2227855700
+        },
+        {
+          "path": "panorama/scripts/hud/hudalerts_insight.vjs_c",
+          "bytes": 2485,
+          "sha256": "2303cbfea15e4baef62f034a7ff8944fc3259db2fd255c2793dca6faaed54157",
+          "crc32": 1810430001
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-01.vsnd_c",
+          "bytes": 23366,
+          "sha256": "99551f7a93cb786b6d3dc2839fc2dd8dfbe28a96d2d3708aad87f9ada94f6360",
+          "crc32": 2142106087
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-02.vsnd_c",
+          "bytes": 23366,
+          "sha256": "b69103356e0cf6e71817c2e2636b4655fb52e0ddfb6c5b0cab11ea4ab0133935",
+          "crc32": 2119152601
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-03.vsnd_c",
+          "bytes": 23366,
+          "sha256": "0cc22bee73e626f84604f3387138ca5c33f331bdef3f9b8f6f5f1087c50fe06b",
+          "crc32": 2989549377
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-normal-04.vsnd_c",
+          "bytes": 23366,
+          "sha256": "c92d7c738ec63cdd5f9e741fbb0835160d6f3aebb2b1e01e53b46a4e874e5dbb",
+          "crc32": 1238734588
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-release-01.vsnd_c",
+          "bytes": 23366,
+          "sha256": "3cbf5430d4e2b073036c31dfa8943895d94fc6500eb0e47ec7a683b11e3e9ac0",
+          "crc32": 3015205975
+        },
+        {
+          "path": "sounds/cs2_insight/input/keyboard-release-02.vsnd_c",
+          "bytes": 23366,
+          "sha256": "d31d9e6097f722d6c36626f9a9545f8686e6ddcf7893c2e1a9ea312c099214b6",
+          "crc32": 994193205
+        },
+        {
+          "path": "sounds/cs2_insight/input/mouse-down.vsnd_c",
+          "bytes": 14486,
+          "sha256": "178c1541e205f42962e46a5e4d198d088699c008f3e26fde851d6630ad5560b3",
+          "crc32": 1097592678
+        },
+        {
+          "path": "sounds/cs2_insight/input/mouse-release.vsnd_c",
+          "bytes": 14086,
+          "sha256": "5063610fe468ef339ea86026cf407d8dea12629b15a24e6625683105879a9234",
+          "crc32": 1699024665
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-01.vsnd_c",
+          "bytes": 23350,
+          "sha256": "e9b106d53df43db43993ae70400efbffc93e727f3edce9e6185ca675ae64e3be",
+          "crc32": 331045794
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-02.vsnd_c",
+          "bytes": 23350,
+          "sha256": "b9a8aad2c5d8a959c721ca2d1f3deef3077402fd09f23395d408f8b0d819f05f",
+          "crc32": 4016394937
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-03.vsnd_c",
+          "bytes": 23350,
+          "sha256": "aec61014af676177ce5f4766efb53e2a922fb9bec2bf921ef298217c7fef0760",
+          "crc32": 4204009663
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-down-04.vsnd_c",
+          "bytes": 23350,
+          "sha256": "0aad6c8eefaf1746612b8ef90c5df6eab73fc60325e193d7419eb4c95d047887",
+          "crc32": 1489695569
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-release-01.vsnd_c",
+          "bytes": 23350,
+          "sha256": "dd959ce9e5163bfbaaed35d4de5cd5850a555c88e6c94ebc09372e6cdceb6689",
+          "crc32": 2395385848
+        },
+        {
+          "path": "sounds/cs2_insight/input/space-release-02.vsnd_c",
+          "bytes": 23350,
+          "sha256": "adf6a9a3ec9ab3366479eba1ec53888c8f97aa3103a570c4f6056acb91cccff1",
+          "crc32": 3089329653
+        },
+        {
+          "path": "soundevents/soundevents_addon.vsndevts_c",
+          "bytes": 3022,
+          "sha256": "326a8126a8c747bccb753975f73ccbe3ac9727563481716ba109e92afb007a7b",
+          "crc32": 3510839718
+        },
+        {
+          "path": "panorama/scripts/hud/huddemocontroller.vts_c",
+          "bytes": 354298,
+          "sha256": "031cc25f8007fc4712d3aca5b0e915289bfd0065bdcd5c00dcf7b09ddaa32ba2",
+          "crc32": 2041583359
+        },
+        {
+          "path": "panorama/layout/hud/hudalerts.vxml_c",
+          "bytes": 1693,
+          "sha256": "6377b23b8f6dc04316b5a62b55d3acfa6cdacbb50198b2fcc9a987e3451d9a6a",
+          "crc32": 2433961466
+        }
+      ]
+    }
+  ]
+}
